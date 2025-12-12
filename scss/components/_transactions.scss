@@ -1,0 +1,76 @@
+//========================================
+// SECTION Transactions
+//========================================
+
+.transactions {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.transaction {
+  @include flex-between;
+  padding: $spacing-md;
+  border-bottom: 1px solid rgba($color-bg-dark, 0.1);
+  transition: background-color $transition-fast;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background-color: $color-bg-light;
+    border-radius: $radius-sm;
+    cursor: pointer;
+  }
+
+  // Info
+
+  &__info {
+    @include flex-start;
+    gap: $spacing-md;
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-full;
+    object-fit: cover;
+    background-color: $color-bg-light;
+  }
+
+  &__name {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    line-height: 150%;
+  }
+
+  // Details
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: $spacing-xs;
+  }
+
+  &__amount {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    line-height: 150%;
+
+    &--positive {
+      color: $color-success;
+    }
+
+    &--negative {
+      color: $color-text-primary;
+    }
+  }
+
+  &__date {
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+  }
+}

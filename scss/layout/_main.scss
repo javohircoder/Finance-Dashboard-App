@@ -1,0 +1,108 @@
+// ============================================
+// Main content - styles
+// ============================================
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: $color-bg-light;
+}
+
+.main-content {
+  padding: $spacing-xl $spacing-3xl;
+  overflow-x: hidden;
+  width: 100%;
+
+  @include mobile {
+    padding: $spacing-lg;
+  }
+}
+
+// Main titles
+.main-header {
+  margin-bottom: $spacing-xl;
+
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    width: 100%;
+
+    @include mobile {
+      font-size: $font-size-2xl;
+    }
+  }
+}
+
+// Grid cards
+.overview-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-lg;
+  margin-bottom: $spacing-2xl;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Main content grid
+.content-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Section content
+.section {
+  @include card;
+
+  &__header {
+    @include flex-between;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    transition: color $transition-fast;
+    gap: $spacing-sm;
+
+    svg {
+      currentColor: $color-text-secondary;
+    }
+
+    &:hover {
+      color: $color-text-primary;
+    }
+  }
+
+}
+
+// Adaptive full-screen
+.transactions-section,
+.bills-section {
+  //grid-column: 1 / -1;
+
+  @include mobile {
+    grid-column: 1;
+  }
+}

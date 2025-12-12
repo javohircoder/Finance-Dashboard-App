@@ -1,0 +1,117 @@
+//========================================
+// SECTION Sidebar
+//========================================
+
+.sidebar {
+  width: $sidebar-width;
+  background-color: $color-bg-dark;
+  border-right: 1px solid $color-bg-dark;
+  border-radius: 0 $font-size-base $font-size-base 0;
+  color: $color-text-muted;
+  padding-bottom: $spacing-2xl;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  transition: $transition-base;
+
+  @include mobile {
+    position: fixed;
+    left: -100%;
+    z-index: 1000;
+
+    &.is-open {
+      left: 0;
+    }
+  }
+
+  &__logo {
+    gap: $spacing-xs;
+    padding: $spacing-3xl $spacing-xl;
+
+  }
+
+  &__nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    padding-right: $spacing-lg;
+  }
+
+  &__minimize {
+    @include button-reset;
+    @include flex-start;
+    gap: $spacing-md;
+    padding: $spacing-md $spacing-xl;
+    color: $color-text-muted;
+    border-radius: $radius-md;
+    transition: $transition-fast;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: $color-text-light;
+    }
+  }
+}
+
+.nav-item {
+  @include flex-start;
+  padding: $spacing-md;
+  border-radius: 0 $font-size-base $font-size-base 0;
+  border-left: 4px solid transparent;
+  gap: $spacing-xs;
+  color: $color-text-muted;
+  transition: $transition-fast;
+
+  &__icon svg {
+    width: $width-icon-sm;
+    height: $width-icon-sm;
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    font-size: $font-size-base;
+    margin-left: $spacing-md;
+    font-weight: $font-weight-bold;
+    font-family: $font-primary;
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: $color-text-light;
+  }
+
+  &--active {
+    background-color: $color-bg-light;
+    color: $color-text-primary;
+    border-left: 4px solid $color-success;
+
+    svg {
+      color: $color-success;
+    }
+
+    &:hover {
+      background-color: $color-bg-light;
+      color: $color-text-primary;
+    }
+  }
+}
+
+.minimize {
+  &__icon {
+    display: flex;
+    align-items: center;
+    font-size: $font-size-lg;
+  }
+
+  &__text {
+    font-size: $font-size-sm;
+  }
+
+  &__icon:hover svg {
+  }
+}
+

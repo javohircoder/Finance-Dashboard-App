@@ -1,0 +1,21 @@
+// ============================================
+// MAIN SCSS
+// ============================================
+
+// 1. Utils (always first!)
+@import 'utils/variables';
+@import 'utils/mixins';
+
+// 2. Base стили
+@import 'base/reset';
+
+// 3. Layouts
+@import 'layout/main';
+
+// 4. Components
+@import 'components/sidebar';
+@import 'components/card';
+@import 'components/pots';
+@import 'components/transactions';
+@import 'components/budgets';
+@import 'components/bills';

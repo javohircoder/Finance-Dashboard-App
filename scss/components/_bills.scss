@@ -1,0 +1,48 @@
+// ============================================
+// COMPONENT - Bills
+// ============================================
+
+.bills-section {
+  padding-bottom: $spacing-xl;
+}
+
+.bills {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.bill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-lg $spacing-md;
+  background-color: $color-bg-light;
+  border-radius: $radius-md;
+  border-left: 4px;
+  border-left-style: solid;
+
+  &[data-state='paid'] {
+    border-left-color: $color-success;
+  }
+
+  &[data-state='total'] {
+    border-left-color: $color-warning;
+  }
+
+  &[data-state='due'] {
+    border-left-color: $color-secondary;
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-regular;
+    line-height: 150%;
+  }
+
+  &__amount {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    line-height: 150%;
+  }
+}
