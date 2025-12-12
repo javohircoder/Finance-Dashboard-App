@@ -119,11 +119,11 @@
     background-color: $color-accent;
 
     &[data-state='bills'] {
-      background-color: $color-danger;
+      background-color: $color-secondary;
     }
 
     &[data-state='dining'] {
-      background-color: $color-secondary;
+      background-color: $color-warning;
     }
 
     &[data-state='personal'] {

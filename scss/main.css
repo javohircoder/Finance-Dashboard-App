@@ -553,10 +553,10 @@ button {
   background-color: #4da89d;
 }
 .budget-item__color[data-state=bills] {
-  background-color: #c94c4c;
+  background-color: #82c9d7;
 }
 .budget-item__color[data-state=dining] {
-  background-color: #82c9d7;
+  background-color: #f2cd5c;
 }
 .budget-item__color[data-state=personal] {
   background-color: #696868;
