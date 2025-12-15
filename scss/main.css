@@ -41,7 +41,7 @@ button {
 .container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0;
 }
 
 .sr-only {
@@ -617,6 +617,335 @@ button {
   font-size: 0.875rem;
   font-weight: 700;
   line-height: 150%;
+}
+
+.main-content--transactions {
+  background-color: #f8f4f0;
+}
+
+.transactions-controls {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+@media (max-width: 767px) {
+  .transactions-controls {
+    flex-direction: column;
+  }
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  max-width: 320px;
+}
+@media (max-width: 767px) {
+  .search-box {
+    max-width: 100%;
+  }
+}
+.search-box__input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 48px;
+  border: 1px solid #98908b;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  color: #201f24;
+  background-color: white;
+}
+.search-box__input::placeholder {
+  color: #98908b;
+}
+.search-box__input:focus {
+  outline: none;
+  border-color: #201f24;
+}
+.search-box__button {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  color: #98908b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 1rem;
+}
+@media (max-width: 767px) {
+  .filter-controls {
+    flex-direction: column;
+  }
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.filter-label {
+  font-size: 0.75rem;
+  color: #696868;
+  font-weight: 400;
+}
+
+.filter-select {
+  padding: 1rem 1.5rem;
+  border: 1px solid #98908b;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  color: #201f24;
+  background-color: white;
+  cursor: pointer;
+  min-width: 160px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23201F24' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 40px;
+}
+.filter-select:focus {
+  outline: none;
+  border-color: #201f24;
+}
+@media (max-width: 767px) {
+  .filter-select {
+    min-width: 100%;
+  }
+}
+
+.transactions-section {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+@media (max-width: 767px) {
+  .transactions-section {
+    padding: 1rem;
+    overflow-x: auto;
+  }
+}
+
+.transactions-table {
+  width: 100%;
+}
+.transactions-table__header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f2f2f2;
+  margin-bottom: 1rem;
+}
+@media (max-width: 767px) {
+  .transactions-table__header {
+    min-width: 600px;
+  }
+}
+.transactions-table__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-header-cell {
+  font-size: 0.75rem;
+  color: #696868;
+  font-weight: 400;
+  text-align: left;
+}
+.table-header-cell--amount {
+  text-align: right;
+}
+
+.transaction-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #f2f2f2;
+  transition: background-color all 0.15s ease;
+  align-items: center;
+}
+.transaction-row:last-child {
+  border-bottom: none;
+}
+.transaction-row:hover {
+  background-color: #fafaf9;
+}
+@media (max-width: 767px) {
+  .transaction-row {
+    min-width: 600px;
+  }
+}
+
+.transaction-cell {
+  display: flex;
+  align-items: center;
+}
+.transaction-cell--date {
+  color: #696868;
+  font-size: 0.875rem;
+}
+.transaction-cell--amount {
+  justify-content: flex-end;
+}
+
+.recipient {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.recipient__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.recipient__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.recipient__avatar--restaurant {
+  background: linear-gradient(135deg, #af5b29, #8b4513);
+}
+.recipient__avatar--service {
+  background: linear-gradient(135deg, #c9a73a, #9c7d2a);
+}
+.recipient__avatar--gaming {
+  background: linear-gradient(135deg, #7c5ac8, #5d3f99);
+}
+.recipient__name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #201f24;
+}
+
+.category-badge {
+  font-size: 0.75rem;
+  color: #696868;
+  font-weight: 400;
+}
+
+.amount {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.amount--positive {
+  color: #277c78;
+}
+.amount--negative {
+  color: #201f24;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+@media (max-width: 767px) {
+  .pagination {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0;
+  }
+}
+.pagination__btn {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid #98908b;
+  border-radius: 0.75rem;
+  background-color: white;
+  color: #201f24;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+.pagination__btn:hover:not(:disabled) {
+  background-color: #201f24;
+  color: white;
+  border-color: #201f24;
+}
+.pagination__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.pagination__btn svg {
+  width: 12px;
+  height: 12px;
+}
+.pagination__numbers {
+  display: flex;
+  gap: 0.5rem;
+}
+.pagination__number {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #98908b;
+  border-radius: 0.75rem;
+  background-color: white;
+  color: #201f24;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+.pagination__number:hover:not(.pagination__number--active) {
+  background-color: #fafaf9;
+}
+.pagination__number--active {
+  background-color: #201f24;
+  color: white;
+  border-color: #201f24;
+}
+
+@media (max-width: 767px) {
+  .transactions-section {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filter-controls {
+    width: 100%;
+  }
+  .filter-select {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

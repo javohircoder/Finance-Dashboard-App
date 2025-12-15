@@ -1,0 +1,364 @@
+// ============================================
+// PAGE TRANSACTIONS
+// ============================================
+
+.main-content--transactions {
+  background-color: $color-bg-light;
+}
+
+// Search & Filters
+.transactions-controls {
+  display: flex;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-2xl;
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+// Search
+.search-box {
+  position: relative;
+  flex: 1;
+  max-width: 320px;
+
+  @include mobile {
+    max-width: 100%;
+  }
+
+  &__input {
+    width: 100%;
+    padding: $spacing-md $spacing-md $spacing-md 48px;
+    border: 1px solid #98908b;
+    border-radius: $radius-md;
+    font-size: $font-size-sm;
+    color: $color-text-primary;
+    background-color: white;
+
+    &::placeholder {
+      color: #98908b;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-text-primary;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    left: $spacing-md;
+    top: 50%;
+    transform: translateY(-50%);
+    @include button-reset;
+    color: #98908b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// Filter
+.filter-controls {
+  display: flex;
+  gap: $spacing-md;
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.filter-label {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  font-weight: $font-weight-regular;
+}
+
+.filter-select {
+  padding: $spacing-md $spacing-lg;
+  border: 1px solid #98908b;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  background-color: white;
+  cursor: pointer;
+  min-width: 160px;
+
+  // Dropdown
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23201F24' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $spacing-md center;
+  padding-right: 40px;
+
+  &:focus {
+    outline: none;
+    border-color: $color-text-primary;
+  }
+
+  @include mobile {
+    min-width: 100%;
+  }
+}
+
+// Table
+
+.transactions-section {
+  background-color: white;
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+  margin-bottom: $spacing-xl;
+
+  @include mobile {
+    padding: $spacing-md;
+    overflow-x: auto;
+  }
+}
+
+.transactions-table {
+  width: 100%;
+
+  // Header
+  &__header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: $spacing-md;
+    padding-bottom: $spacing-md;
+    border-bottom: 1px solid #f2f2f2;
+    margin-bottom: $spacing-md;
+
+    @include mobile {
+      min-width: 600px;
+    }
+  }
+
+  // Body
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// Header cells
+.table-header-cell {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  font-weight: $font-weight-regular;
+  text-align: left;
+
+  &--amount {
+    text-align: right;
+  }
+}
+
+// Line транзакций
+
+.transaction-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: $spacing-md;
+  padding: $spacing-lg 0;
+  border-bottom: 1px solid #f2f2f2;
+  transition: background-color $transition-fast;
+  align-items: center;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background-color: #fafaf9;
+  }
+
+  @include mobile {
+    min-width: 600px;
+  }
+}
+
+// Transaction cells
+.transaction-cell {
+  display: flex;
+  align-items: center;
+
+  &--recipient {
+    // Main column
+  }
+
+  &--category {
+    // Category column
+  }
+
+  &--date {
+    color: $color-text-secondary;
+    font-size: $font-size-sm;
+  }
+
+  &--amount {
+    justify-content: flex-end;
+  }
+}
+
+// Recipient/Sender
+
+.recipient {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-full;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    // Avatar without images
+    &--restaurant {
+      background: linear-gradient(135deg, #af5b29, #8b4513);
+    }
+
+    &--service {
+      background: linear-gradient(135deg, #c9a73a, #9c7d2a);
+    }
+
+    &--gaming {
+      background: linear-gradient(135deg, #7c5ac8, #5d3f99);
+    }
+  }
+
+  &__name {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+  }
+}
+
+// Category badges
+
+.category-badge {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  font-weight: $font-weight-regular;
+}
+
+// Amount
+
+.amount {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+
+  &--positive {
+    color: #277c78;
+  }
+
+  &--negative {
+    color: $color-text-primary;
+  }
+}
+
+// Pagination
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $spacing-xl;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-lg;
+    padding: 0;
+  }
+
+  &__btn {
+    @include button-reset;
+    @include flex-center;
+    gap: $spacing-sm;
+    padding: $spacing-md $spacing-lg;
+    border: 1px solid #98908b;
+    border-radius: $radius-md;
+    background-color: white;
+    color: $color-text-primary;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    transition: $transition-fast;
+
+    &:hover:not(:disabled) {
+      background-color: $color-text-primary;
+      color: white;
+      border-color: $color-text-primary;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  &__numbers {
+    display: flex;
+    gap: $spacing-sm;
+  }
+
+  &__number {
+    @include button-reset;
+    width: 40px;
+    height: 40px;
+    @include flex-center;
+    border: 1px solid #98908b;
+    border-radius: $radius-md;
+    background-color: white;
+    color: $color-text-primary;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    transition: $transition-fast;
+
+    &:hover:not(&--active) {
+      background-color: #fafaf9;
+    }
+
+    &--active {
+      background-color: $color-text-primary;
+      color: white;
+      border-color: $color-text-primary;
+    }
+  }
+}
+
+// Adaptive mobile
+
+@include mobile {
+  .transactions-section {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filter-controls {
+    width: 100%;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+}
