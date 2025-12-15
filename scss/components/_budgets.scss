@@ -106,11 +106,6 @@
   border-radius: $radius-sm;
   transition: background-color $transition-fast;
 
-  &:hover {
-    background-color: $color-bg-light;
-    cursor: pointer;
-  }
-
   &__color {
     width: 4px;
     height: 40px;

@@ -8,8 +8,7 @@
 
 // Search & Filters
 .transactions-controls {
-  display: flex;
-  gap: $spacing-lg;
+  @include flex-between;
   margin-bottom: $spacing-2xl;
 
   @include mobile {
@@ -70,9 +69,8 @@
 }
 
 .filter-item {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-xs;
+  @include flex-start;
+  gap: $spacing-sm;
 }
 
 .filter-label {

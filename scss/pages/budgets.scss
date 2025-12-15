@@ -1,0 +1,464 @@
+// ============================================
+// PAGE BUDGETS
+// ============================================
+.page-header {
+  @include flex-between;
+}
+
+.main-content--budgets {
+  background-color: $color-bg-light;
+}
+
+// Layout: Chart left + Cards right
+
+.budgets-layout {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: $spacing-xl;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Left section: Chart + Summary
+
+.budgets-chart-section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+// Donut Chart
+.spending-chart {
+  background: white;
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+  position: relative;
+
+  &__svg {
+    width: 100%;
+    height: auto;
+    max-width: 250px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  &__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  &__total {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__limit {
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+  }
+}
+
+// Spending Summary
+.spending-summary {
+  background: white;
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md 0;
+  border-bottom: 1px solid #f2f2f2;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  &__dot {
+    width: 4px;
+    height: 40px;
+    border-radius: $radius-sm;
+    flex-shrink: 0;
+  }
+
+  &__name {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+  }
+
+  &__amounts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: $spacing-xs;
+  }
+
+  &__spent {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+  }
+
+  &__total {
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+  }
+}
+
+// Right section: Budget Cards Grid
+
+.budgets-cards {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+// Budget Box
+
+.budget-box {
+  background: white;
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+
+  // Header
+  &__header {
+    @include flex-between;
+    margin-bottom: $spacing-md;
+  }
+
+  &__title-wrap {
+    @include flex-start;
+    gap: $spacing-md;
+  }
+
+  &__indicator {
+    width: $spacing-md;
+    height: $spacing-md;
+    border-radius: $radius-sm;
+    flex-shrink: 0;
+    background: $color-success;
+
+    &[data-state='budget-box-bills'] {
+      background-color: $color-secondary;
+    }
+
+    &[data-state='budget-box-dining'] {
+      background-color: $color-warning-secondary;
+    }
+
+    &[data-state='budget-box-personal'] {
+      background-color: $color-text-secondary;
+    }
+
+  }
+
+  &__name {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+  }
+
+  &__menu {
+    @include button-reset;
+    padding: $spacing-sm;
+    cursor: pointer;
+    transition: opacity $transition-fast;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  // Maximum
+  &__maximum {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    margin-bottom: $spacing-lg;
+  }
+
+  // Progress Wrapper
+  &__progress-wrap {
+    margin-bottom: $spacing-lg;
+  }
+
+  // Stats
+  &__stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-md;
+    margin-bottom: $spacing-xl;
+  }
+
+  // Transactions Section
+  &__transactions {
+    border-top: 1px solid #f2f2f2;
+    padding-top: $spacing-lg;
+  }
+
+  &__trans-header {
+    @include flex-between;
+    margin-bottom: $spacing-md;
+  }
+
+  &__trans-title {
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+  }
+
+  &__see-all {
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-text-primary;
+    }
+
+    span {
+      margin-left: $spacing-xs;
+    }
+  }
+}
+
+// Budget Progress Bar
+
+.budget-progress {
+  width: 100%;
+  height: 32px;
+  background: $color-bg-light;
+  overflow: hidden;
+  position: relative;
+  padding: $spacing-xs;
+  border-radius: $radius-xs;
+
+  &__bar {
+    height: 100%;
+    width: 30%;
+    transition: width 0.6s ease;
+    background-color: $color-success;
+    border-radius: $radius-xs;
+
+    &[data-state='budget-progress-bills'] {
+      background-color: $color-secondary;
+    }
+
+    &[data-state='budget-progress-dining'] {
+      background-color: $color-warning-secondary;
+    }
+
+    &[data-state='budget-progress-personal'] {
+      background-color: $color-text-secondary;
+    }
+
+  }
+
+}
+
+// Budget Stat (Spent/Remaining)
+
+.budget-stat {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  &__header {
+    @include flex-start;
+    gap: $spacing-md;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__color {
+    width: 4px;
+    height: 43px;
+    border-radius: $radius-sm;
+    flex-shrink: 0;
+
+    &[data-state='entertainment'] {
+      background-color: $color-success;
+    }
+
+    &[data-state='bills'] {
+      background-color: $color-secondary;
+    }
+
+    &[data-state='dining'] {
+      background-color: $color-warning-secondary;
+    }
+
+    &[data-state='personal'] {
+      background-color: $color-text-secondary;
+    }
+
+    &[data-state='remaining'] {
+      background-color: $color-bg-light;
+    }
+
+  }
+
+
+  &__label {
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+  }
+
+  &__value {
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+  }
+}
+
+// Budget Transactions List
+
+.budget-transactions {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.budget-trans-item {
+  @include flex-between;
+  padding: $spacing-md 0;
+  border-bottom: 1px solid #f8f8f8;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  // Info (Avatar + Name)
+  &__info {
+    @include flex-start;
+    gap: $spacing-md;
+  }
+
+  &__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: $radius-full;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &--restaurant {
+      background: linear-gradient(135deg, #af5b29, #8b4513);
+    }
+
+    &--gaming {
+      background: linear-gradient(135deg, #7c5ac8, #5d3f99);
+    }
+
+    &--electric {
+      background: linear-gradient(135deg, #c94c4c, #a83939);
+    }
+
+    &--utilities {
+      background: linear-gradient(135deg, #626070, #4a4858);
+    }
+
+    &--spa {
+      background: linear-gradient(135deg, #f2cdac, #d9b68a);
+    }
+  }
+
+  &__name {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+  }
+
+  // Details (Amount + Date)
+  &__details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: $spacing-xs;
+  }
+
+  &__amount {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+  }
+
+  &__date {
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+  }
+}
+
+// Adaptive mobile
+
+@include mobile {
+  .budgets-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .spending-chart {
+    &__svg {
+      max-width: 200px;
+    }
+  }
+
+  .budget-box {
+    &__stats {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@include tablet {
+  .budgets-chart-section {
+    grid-template-columns: 1fr 1fr;
+
+    .spending-chart,
+    .spending-summary {
+      grid-column: span 1;
+    }
+  }
+}
