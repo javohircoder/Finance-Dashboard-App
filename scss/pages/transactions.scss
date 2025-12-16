@@ -9,7 +9,7 @@
 // Search & Filters
 .transactions-controls {
   @include flex-between;
-  margin-bottom: $spacing-2xl;
+  margin-bottom: $spacing-lg;
 
   @include mobile {
     flex-direction: column;
@@ -28,9 +28,9 @@
 
   &__input {
     width: 100%;
-    padding: $spacing-md $spacing-md $spacing-md 48px;
+    padding: $spacing-md 52px $spacing-md $spacing-md;
     border: 1px solid #98908b;
-    border-radius: $radius-md;
+    border-radius: $radius-sm;
     font-size: $font-size-sm;
     color: $color-text-primary;
     background-color: white;
@@ -47,7 +47,7 @@
 
   &__button {
     position: absolute;
-    left: $spacing-md;
+    right: $spacing-md;
     top: 50%;
     transform: translateY(-50%);
     @include button-reset;
@@ -74,7 +74,7 @@
 }
 
 .filter-label {
-  font-size: $font-size-xs;
+  font-size: $font-size-sm;
   color: $color-text-secondary;
   font-weight: $font-weight-regular;
 }
@@ -82,7 +82,7 @@
 .filter-select {
   padding: $spacing-md $spacing-lg;
   border: 1px solid #98908b;
-  border-radius: $radius-md;
+  border-radius: $radius-sm;
   font-size: $font-size-sm;
   color: $color-text-primary;
   background-color: white;
@@ -110,7 +110,7 @@
 
 .transactions-section {
   background-color: white;
-  border-radius: $radius-lg;
+  border-radius: $radius-md;
   padding: $spacing-xl;
 
   @include mobile {
@@ -127,9 +127,9 @@
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: $spacing-md;
-    padding-bottom: $spacing-md;
+    padding: 1.25rem $spacing-md;
     border-bottom: 1px solid #f2f2f2;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-lg;
 
     @include mobile {
       min-width: 600px;
@@ -140,6 +140,7 @@
   &__body {
     display: flex;
     flex-direction: column;
+    padding-bottom: $spacing-lg;
   }
 }
 
@@ -166,13 +167,14 @@
   transition: background-color $transition-fast;
   align-items: center;
 
+  &:first-child {
+    padding-top: 0;
+  }
+
   &:last-child {
     border-bottom: none;
   }
 
-  &:hover {
-    background-color: #fafaf9;
-  }
 
   @include mobile {
     min-width: 600px;
@@ -275,7 +277,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 $spacing-xl;
+  padding-top: $spacing-lg;
 
   @include mobile {
     flex-direction: column;
@@ -287,9 +289,9 @@
     @include button-reset;
     @include flex-center;
     gap: $spacing-sm;
-    padding: $spacing-md $spacing-lg;
-    border: 1px solid #98908b;
-    border-radius: $radius-md;
+    padding: 0.75rem $spacing-md;
+    border: 1px solid $color-text-muted;
+    border-radius: $radius-sm;
     background-color: white;
     color: $color-text-primary;
     font-size: $font-size-sm;
@@ -308,8 +310,9 @@
     }
 
     svg {
-      width: 12px;
-      height: 12px;
+      width: 16px;
+      height: 16px;
+      color: currentColor;
     }
   }
 
@@ -323,8 +326,8 @@
     width: 40px;
     height: 40px;
     @include flex-center;
-    border: 1px solid #98908b;
-    border-radius: $radius-md;
+    border: 1px solid $color-text-muted;
+    border-radius: $radius-sm;
     background-color: white;
     color: $color-text-primary;
     font-size: $font-size-sm;

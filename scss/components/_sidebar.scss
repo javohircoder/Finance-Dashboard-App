@@ -27,7 +27,6 @@
   }
 
   &__logo {
-    gap: $spacing-xs;
     padding: $spacing-3xl $spacing-xl;
 
   }
@@ -59,7 +58,7 @@
 .nav-item {
   @include flex-start;
   padding: $spacing-md $spacing-xl;
-  border-radius: 0 $font-size-base $font-size-base 0;
+  border-radius: 0 $font-size-xs $font-size-xs 0;
   border-left: 4px solid transparent;
   gap: $spacing-xs;
   color: $color-text-muted;

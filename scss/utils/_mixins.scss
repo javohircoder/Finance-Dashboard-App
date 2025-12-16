@@ -80,7 +80,7 @@
 // Card
 @mixin card {
   background: $color-bg-card;
-  border-radius: $radius-lg;
+  border-radius: $radius-md;
   padding: $spacing-xl;
   box-shadow: $shadow-sm;
 }

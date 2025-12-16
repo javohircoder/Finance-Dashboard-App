@@ -48,7 +48,7 @@
 // Donut Chart
 .spending-chart {
   background: white;
-  border-radius: $radius-lg;
+  border-radius: $radius-md;
   padding: $spacing-xl;
   position: relative;
 
@@ -84,7 +84,7 @@
 // Spending Summary
 .spending-summary {
   background: white;
-  border-radius: $radius-lg;
+  border-radius: $radius-md;
   padding: $spacing-xl;
 
   &__title {
@@ -120,7 +120,7 @@
 
   &__dot {
     width: 4px;
-    height: 40px;
+    height: 21px;
     border-radius: $radius-sm;
     flex-shrink: 0;
   }
@@ -132,8 +132,8 @@
 
   &__amounts {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    align-items: center;
     gap: $spacing-xs;
   }
 
@@ -161,7 +161,7 @@
 
 .budget-box {
   background: white;
-  border-radius: $radius-lg;
+  border-radius: $radius-md;
   padding: $spacing-xl;
 
   // Header
@@ -253,7 +253,7 @@
   }
 
   &__see-all {
-    font-size: $font-size-xs;
+    font-size: $font-size-sm;
     color: $color-text-secondary;
     text-decoration: none;
     transition: color $transition-fast;
