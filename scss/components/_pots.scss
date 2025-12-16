@@ -21,7 +21,7 @@
   &__summary {
     @include flex-start;
     gap: $spacing-md;
-    padding: $spacing-lg 5rem $spacing-md $spacing-md;
+    padding: 1.3rem 5.6rem $spacing-md 1.3rem;
     background-color: $color-bg-light;
     border-radius: $radius-md;
   }

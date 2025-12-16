@@ -39,7 +39,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: $spacing-lg;
-  margin-bottom: $spacing-2xl;
+  margin-bottom: $spacing-xl;
 
   @include mobile {
     grid-template-columns: 1fr;

@@ -2,26 +2,31 @@
 // SECTION Transactions
 //========================================
 
+.header-main {
+  margin-bottom: 2rem;
+}
+
 .transactions {
   display: flex;
   flex-direction: column;
-  gap: $spacing-md;
 }
 
 .transaction {
   @include flex-between;
-  padding: $spacing-md;
+  padding: 1.25rem 0;
   border-bottom: 1px solid rgba($color-bg-dark, 0.1);
   transition: background-color $transition-fast;
 
-  &:last-child {
-    border-bottom: none;
+  &:first-child {
+    padding-top: 0;
   }
 
-  &:hover {
-    background-color: $color-bg-light;
-    border-radius: $radius-sm;
-    cursor: pointer;
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
   }
 
   // Info

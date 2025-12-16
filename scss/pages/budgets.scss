@@ -3,10 +3,22 @@
 // ============================================
 .page-header {
   @include flex-between;
+  margin-bottom: $spacing-xl;
 }
 
 .main-content--budgets {
   background-color: $color-bg-light;
+}
+
+.btn-budgets {
+  @include button-reset;
+  padding: $spacing-md;
+  border-radius: $radius-sm;
+  background-color: $color-bg-dark;
+  color: $color-bg-card;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-sm;
+  line-height: 150%;
 }
 
 // Layout: Chart left + Cards right
@@ -223,8 +235,10 @@
 
   // Transactions Section
   &__transactions {
-    border-top: 1px solid #f2f2f2;
-    padding-top: $spacing-lg;
+    padding: $spacing-lg;
+    background-color: $color-bg-light;
+    border-radius: $radius-md;
+
   }
 
   &__trans-header {
@@ -357,7 +371,7 @@
 .budget-trans-item {
   @include flex-between;
   padding: $spacing-md 0;
-  border-bottom: 1px solid #f8f8f8;
+  border-bottom: 1px solid rgba(32, 31, 36, 0.15);
 
   &:last-child {
     border-bottom: none;

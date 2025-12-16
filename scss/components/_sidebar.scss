@@ -58,7 +58,7 @@
 
 .nav-item {
   @include flex-start;
-  padding: $spacing-md;
+  padding: $spacing-md $spacing-xl;
   border-radius: 0 $font-size-base $font-size-base 0;
   border-left: 4px solid transparent;
   gap: $spacing-xs;
