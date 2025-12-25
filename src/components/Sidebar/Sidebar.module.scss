@@ -1,0 +1,68 @@
+//========================================
+// SECTION Sidebar
+//========================================
+
+@use '../../styles/utils/_variables' as *;
+@use '../../styles/utils/_mixins' as *;
+
+.sidebar {
+  width: $sidebar-width;
+  background-color: $color-bg-dark;
+  border-right: 1px solid $color-bg-dark;
+  border-radius: 0 $font-size-base $font-size-base 0;
+  color: $color-text-muted;
+  padding-bottom: $spacing-2xl;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  transition: $transition-base;
+
+  @include mobile {
+    position: fixed;
+    left: -100%;
+    z-index: 1000;
+
+    &.open {
+      left: 0;
+    }
+  }
+}
+
+.logo {
+  padding: $spacing-3xl $spacing-xl;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  padding-right: $spacing-lg;
+}
+
+.minimize {
+  @include button-reset;
+  @include flex-start;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-xl;
+  color: $color-text-muted;
+  border-radius: $radius-md;
+  transition: $transition-fast;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: $color-text-light;
+  }
+}
+
+.minimizeIcon {
+  display: flex;
+  align-items: center;
+  font-size: $font-size-lg;
+}
+
+.minimizeText {
+  font-size: $font-size-sm;
+}

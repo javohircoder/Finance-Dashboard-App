@@ -1,3 +1,4 @@
+import styles from './Sidebar.module.scss'
 import NavItem from "./NavItem/NavItem.jsx";
 import SvgLeftMinimize from "../UI/icons/SvgLeftMinimize.jsx";
 import SvgOverviewIcon from "../UI/icons/SvgOverviewIcon.jsx";
@@ -5,6 +6,7 @@ import SvgTransactionsIcon from "../UI/icons/SvgTransactionsIcon.jsx";
 import SvgBudgetsIcon from "../UI/icons/SvgBudgetsIcon.jsx";
 import SvgPotsIcon from "../UI/icons/SvgPotsIcon.jsx";
 import SvgBillsIcon from "../UI/icons/SvgBillsIcon.jsx";
+import {useState} from "react";
 
 
 const sidebarMenu = [
@@ -12,7 +14,6 @@ const sidebarMenu = [
         id: 'overview',
         label: 'Overview',
         icon: SvgOverviewIcon,
-        active: true,
     },
     {
         id: 'transactions',
@@ -36,10 +37,12 @@ const sidebarMenu = [
     },
 ]
 
+
 function Sidebar() {
+    const [activeItem, setActiveItem] = useState('overview');
     return (
-        <aside className="sidebar">
-            <div className="sidebar__logo">
+        <aside className={styles.sidebar}>
+            <div className={styles.logo}>
                 <a href="#">
                     <img alt="Logo" src="/images/Sidebar/Logo.svg"/>
                 </a>
@@ -51,8 +54,8 @@ function Sidebar() {
                     <NavItem
                         key={item.id}
                         label={item.label}
-                        ctive={item.active}
-                        icon={<item.icon/>}
+                        isActive={activeItem === item.id}
+                        icon={item.icon}
                     />
                 ))}
 

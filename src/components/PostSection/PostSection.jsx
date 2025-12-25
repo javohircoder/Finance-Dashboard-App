@@ -1,11 +1,12 @@
 import Pots from './Pots/Pots';
+import styles from "./PostSection.module.scss";
 
 function PostSection() {
     return (
-        <section className="section post-section">
-            <div className="section__header">
-                <h4 className="section__title">Post</h4>
-                <a className="section__link" href="#">
+        <section className={styles.section}>
+            <div className={styles.header}>
+                <h4 className={styles.title}>Post</h4>
+                <a className={styles.link} href="#">
                     See Details
                     <svg
                         fill="none"
@@ -22,7 +23,7 @@ function PostSection() {
                 </a>
             </div>
 
-            <div className="section__content">
+            <div className={styles.content}>
                 <Pots/>
             </div>
         </section>

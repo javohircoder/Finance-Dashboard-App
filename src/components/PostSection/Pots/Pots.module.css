@@ -1,11 +1,12 @@
-@use '../../../styles/utils/_mixins' as *;
-
 .pots {
   display: flex;
   flex-direction: column;
   gap: 16px;
-
-  @include mobile {
+}
+@media (max-width: 767px) {
+  .pots {
     flex-direction: column;
   }
 }
+
+/*# sourceMappingURL=Pots.module.css.map */

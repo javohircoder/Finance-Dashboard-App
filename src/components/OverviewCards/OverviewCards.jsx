@@ -1,15 +1,18 @@
-function OverviewCards({ cards }) {
-  return (
-    <section key={cards} className="overview-cards">
-      {cards.map((card) => (
-        <div key={card.label} className={`card card--${card.variant}`}>
-          <span className="card__label">{card.label}</span>
-          <span className="card__amount">{card.amount}</span>
-          <span></span>
-        </div>
-      ))}
-    </section>
-  );
+import Card from "../Card/Card";
+import styles from "./OverviewCards.module.scss";
+
+function OverviewCards({cards}) {
+    return (
+        <section className={styles.wrapper}>
+            {cards.map((card) => (
+                <Card
+                    key={card.id}
+                    label={card.label}
+                    amount={card.amount}
+                    variant={card.variant}/>
+            ))}
+        </section>
+    );
 }
 
 export default OverviewCards;
