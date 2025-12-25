@@ -1,4 +1,4 @@
-function SvgPotsIcon2(props) {
+function SvgPotsIcon2() {
     return (
         <svg
             fill="none"
