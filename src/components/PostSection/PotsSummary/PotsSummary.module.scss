@@ -1,15 +1,38 @@
 .summary {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  background-color: #f3f6f5;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .label {
   font-size: 14px;
-  opacity: 0.7;
+  color: #8c8c8c;
 }
 
 .amount {
   font-size: 24px;
   font-weight: 700;
+  color: #201f24;
 }

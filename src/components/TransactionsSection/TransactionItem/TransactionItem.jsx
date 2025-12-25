@@ -1,20 +1,20 @@
-function TransactionItem() {
+import styles from './TransactionItem.module.scss';
+
+function TransactionItem({name, amount, data, avatar, type}) {
     return (
-        <div className="transaction">
-            <div className="transaction__info">
+        <div className={styles.item}>
+            <div className={styles.info}>
                 <img
-                    className="transaction__avatar"
-                    src="/images/Main/users/Person-1.png"
-                    alt="Emma Richardson"
+                    className={styles.avatar}
+                    src={avatar}
+                    alt={name}
                 />
-                <span className="transaction__name">Emma Richardson</span>
+                <span className={styles.name}>{name}</span>
             </div>
 
-            <div className="transaction__details">
-        <span className="transaction__amount transaction__amount--positive">
-          +$75.50
-        </span>
-                <span className="transaction__date">19 Aug 2024</span>
+            <div className={styles.details}>
+                <span className={`${styles.amount} ${styles[type]}`}>{amount}</span>
+                <span className={styles.date}>{data}</span>
             </div>
         </div>
     );

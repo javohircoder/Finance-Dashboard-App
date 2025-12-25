@@ -1,12 +1,14 @@
 import TransactionsList from './TransactionsList/TransactionsList';
+import styles from './TransactionsSection.module.scss'
+
 
 function TransactionsSection() {
     return (
-        <section className="section transactions-section">
-            <div className="section__header header-main">
-                <h3 className="section__title">Transactions</h3>
+        <section className={styles.section}>
+            <div className={styles.header}>
+                <h3 className={styles.title}>Transactions</h3>
 
-                <a href="#" className="section__link">View All
+                <a href="#" className={styles.link}>View All
                     <svg
                         fill="none"
                         width="6"
@@ -21,7 +23,7 @@ function TransactionsSection() {
                     </svg>
                 </a>
             </div>
-            <div className="section__content">
+            <div className={styles.content}>
                 <TransactionsList/>
             </div>
         </section>

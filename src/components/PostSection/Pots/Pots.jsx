@@ -12,12 +12,8 @@ const potsData = [
 function Pots() {
     return (
         <div className={styles.pots}>
-            <div className={styles.summary}>
-                <PotsSummary/>
-            </div>
-            <div className={styles.list}>
-                <PotsList/>
-            </div>
+            <PotsSummary total="$850"/>
+            <PotsList items={potsData}/>
         </div>
     );
 }

@@ -1,12 +1,12 @@
 import PotsItem from '../PotsItem/PotsItem';
+import styles from './PotsList.module.scss'
 
-function PotsList() {
+function PotsList({items}) {
     return (
-        <div className="pots__list">
-            <PotsItem/>
-            <PotsItem/>
-            <PotsItem/>
-            <PotsItem/>
+        <div className={styles.list}>
+            {items.map(item => (
+                <PotsItem key={item.id} name={item.name} amount={item.amount}/>
+            ))}
         </div>
     );
 }
